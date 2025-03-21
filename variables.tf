@@ -12,6 +12,25 @@ variable "vsphere_server" {
   sensitive = true
 }
 
+variable "domain_admin_user" {
+  sensitive = true
+}
+
+variable "domain_admin_password" {
+  sensitive = true
+}
+
+variable "nsx_manager" {
+  sensitive = true
+}
+
+variable "nsx_username" {
+  sensitive = true
+}
+
+variable "nsx_password" {
+  sensitive = true
+}
 #Infrastructure variables
 
 variable "vsphere_datacenter" {
@@ -22,9 +41,11 @@ variable "vsphere_compute_cluster" {
   description = "vSPhere cluster in which the virtual machine will be deployed"
 }
 
-variable "vsphere_datastore" {
+variable "datastore_cluster" { default = "Datastore_Cluster" }
+
+/* variable "vsphere_datastore" {
   description = "Datastore in which the virtual machine will be deployed"
-}
+} */
 
 variable "vsphere_resource_pool" {
   description = "Resource pool in which the virtual machine will be deployed"
@@ -90,21 +111,6 @@ variable "vm_domain" {
   description = "Domain name of virtual machine"
 }
 
-#variable "windows_command_1" {
-#  description = "first windows guest OS customiztion command"
-#}
-
-#variable "windows_command_2" {
-#  description = "second windows guest OS customiztion command"
-#}
-
-#variable "windows_command_3" {
-#  description = "third windows guest OS customiztion command"
-#}
-
-#variable "windows_command_4" {
-#  description = "fourth windows guest OS customiztion command"
-#}
 
 variable "vms" {
   description = "VM attributes that can be overriden"
